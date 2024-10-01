@@ -1,0 +1,24 @@
+# text_preprocessing.py
+
+import re
+
+def normalize_text(text):
+    """
+    Function to normalize text by converting it to lowercase and removing punctuation.
+    """
+    # Convert text to lowercase
+    text = text.lower()
+
+    # Remove unwanted characters (punctuation)
+    text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+
+    # Remove extra spaces
+    text = re.sub(r'\s+', ' ', text).strip()
+
+    return text
+
+# Example usage
+if __name__ == "__main__":
+    text_input = "Hello World! This is a sample Text."
+    normalized_text = normalize_text(text_input)
+    print("Normalized Text:", normalized_text)
